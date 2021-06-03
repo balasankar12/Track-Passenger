@@ -1,3 +1,22 @@
+
+.ind-container {
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ind-vertical-center {
+  background-color: #f1de71;
+  padding: 20px;
+  margin: 5px auto;
+  text-align: center;
+  position: relative;
+  width: 50%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .form-container {
   padding: 10px;
   background-color: black;
