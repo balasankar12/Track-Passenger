@@ -1,0 +1,82 @@
+// SPDX-License-Identifier: UNLINCENSED
+
+pragma solidity >=0.7.0 < 0.9.0;
+
+// Creating a Smart Contract
+contract Passenger_Tracking{
+    
+    address public admin;
+    
+    constructor(){
+        admin = msg.sender;
+	}
+    
+    modifier isAdmin() {
+		require(msg.sender == admin, "Caller is not an Admin");
+		_;	
+    }
+   struct Passenger{
+       
+       // State variables
+       address id;
+       uint fno;
+       string toc;
+       string fromc;
+       string date;
+       string pnrno;
+       string email;
+       string travel;
+       }
+   
+   mapping (address => Passenger) public datamatching;
+
+   function addPassenger(
+     address _id,
+     uint _fno,
+     string memory _fromc,
+     string memory _toc,
+     string memory _date,
+     string memory _pnrno,
+     string memory _email
+   ) public isAdmin{
+        Passenger storage history = datamatching[_id];
+        history.id=_id;
+        history.fno=_fno;
+        history.toc=_toc;
+        history.fromc=_fromc;
+        history.date=_date;
+        history.pnrno=_pnrno;
+        history.email=_email;
+        
+        if(keccak256(abi.encodePacked(datamatching[_id].travel)) == keccak256(abi.encodePacked(""))){
+            history.travel=string(abi.encodePacked(history.fromc,"-",history.toc,"-",history.date));
+        }
+        else{
+            history.travel=string(abi.encodePacked(datamatching[_id].travel,"$",history.fromc,"-",history.toc,"-",history.date));
+        }
+   }
+  
+
+   function getPassenger(
+     address id
+   ) public view returns(
+     string memory){
+         if(keccak256(abi.encodePacked(datamatching[id].travel)) == keccak256(abi.encodePacked(""))){
+             return "No Details...";
+         }
+         else{
+            return datamatching[id].travel;    
+         }
+       
+   }
+   
+   
+   function getmailid(address id) public view returns(string memory){
+       if(keccak256(abi.encodePacked(datamatching[id].email)) == keccak256(abi.encodePacked(""))){
+             return "No Details...";
+         }
+         else{
+            return datamatching[id].email;    
+         }
+   }
+}

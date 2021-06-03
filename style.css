@@ -1,0 +1,79 @@
+.form-container {
+  padding: 10px;
+  background-color: black;
+  opacity: 0.9;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  font-weight: normal;
+  color: #f1de71;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-container2 {
+  padding: 10px;  
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+body {
+  font-family:"Lucida Handwriting" ;
+}
+
+.headTextstyle1 {
+    font-family:"Lucida Console" ;
+    font-size: x-large;
+    font-weight: bolder;
+    color: #004071;
+}
+
+.headTextstyle2 {
+    font-family:"Lucida Handwriting" ;
+    font-size: large;
+    font-weight: bold;
+    color: #004071;
+}
+
+
+
+header {
+  position: relative;
+  background-color: white;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  width: 60%;
+  margin-top: 50px;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.1;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
